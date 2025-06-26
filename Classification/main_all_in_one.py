@@ -135,12 +135,13 @@ print("len(ovr_clf.estimator): ",len(ovr_clf.estimators_))
 forest_clf.fit(x_train, y_train)
 print(forest_clf.predict([some_digit]))
 print("forest_clf.predict_proba: ",forest_clf.predict_proba([some_digit]))
-print("cross_val_predict(x_train: ",cross_val_predict(x_train, y_train_5, cv=3, method="predict_proba"))
+print("cross_val_predict(x_train: ",
+      cross_val_predict(forest_clf, x_train, y_train_5, cv=3, method="predict_proba"))
 
 #Imporve by scaling the input
 scaler = StandardScaler()
 x_train_scaled = scaler.fit_transform(x_train.astype(np.float64))
-y_train_pred = cross_val_predict(x_train_scaled, y_train, cv=3, method="predict_proba")
+y_train_pred = cross_val_predict(sgd_clf, x_train_scaled, y_train_5, cv=3)
 print("cross_val_predict(x_train_scaled: ",  y_train_pred )
 
 #Error analysis

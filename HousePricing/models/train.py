@@ -54,7 +54,7 @@ def train_all_models(housing_prepared,housing_labels):
     scores = cross_val_score(forest_reg, housing_prepared, housing_labels,
     scoring="neg_mean_squared_error", cv=10)
     forst_rmse_scores = np.sqrt(-scores)
-    print("***************************forest Reg RMSE SCORES",tree_rmse_scores)
+    print("***************************forest Reg RMSE SCORES", forst_rmse_scores)
     print("Mean SCORES",forst_rmse_scores.mean())
     print("std SCORES",forst_rmse_scores.std())
 
